@@ -1,8 +1,366 @@
-<DOCTYPE>
-  <html>
-    <head>
-      <title>FQDN</title>
-    </head>
-    <body> BIGGEST FQDN
-    </body>
-  </html>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The longest WEBSITE FQDN in the world</title>
+  <meta name="description" content="Discover the world's longest FQDN with 100 zeros! A tribute to the googol (10¹⁰⁰) that inspired Google and the viral idea of the Million Dollar Homepage">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        .particles {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .particle {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: float 20s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) translateX(0); }
+            25% { transform: translateY(-100px) translateX(50px); }
+            50% { transform: translateY(-200px) translateX(-50px); }
+            75% { transform: translateY(-100px) translateX(100px); }
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 60px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border-radius: 30px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            margin-bottom: 60px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .badge {
+            display: inline-block;
+            background: linear-gradient(90deg, #ff6b6b, #ffd93d);
+            color: #000;
+            padding: 10px 25px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 30px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-weight: 700;
+            color: white;
+            margin-bottom: 20px;
+            text-shadow: 0 5px 30px rgba(0, 0, 0, 0.5);
+            line-height: 1.2;
+        }
+
+        .highlight {
+            background: linear-gradient(90deg, #ffd93d, #ff6b6b, #6bcf7f);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradient 3s ease infinite;
+        }
+
+        @keyframes gradient {
+            0%, 100% { background-position: 0% center; }
+            50% { background-position: 100% center; }
+        }
+
+        .subtitle {
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        .fqdn-display {
+            background: rgba(0, 0, 0, 0.4);
+            padding: 20px;
+            border-radius: 15px;
+            margin: 30px 0;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            color: #6bcf7f;
+            word-break: break-all;
+            max-height: 150px;
+            overflow-y: auto;
+            border: 1px solid rgba(107, 207, 127, 0.3);
+        }
+
+        .googol-section {
+            text-align: center;
+            padding: 80px 20px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 30px;
+            margin: 40px 0;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .googol-number {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: clamp(3rem, 10vw, 8rem);
+            font-weight: 700;
+            color: white;
+            text-shadow: 0 0 40px rgba(255, 255, 255, 0.5);
+            margin: 30px 0;
+            letter-spacing: 5px;
+        }
+
+        .googol-explanation {
+            font-size: clamp(1rem, 2.5vw, 1.3rem);
+            color: rgba(255, 255, 255, 0.8);
+            max-width: 800px;
+            margin: 0 auto 40px;
+            line-height: 1.8;
+        }
+
+        .tribute-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 60px 0;
+        }
+
+        .tribute-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .tribute-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+
+        .tribute-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+
+        .tribute-card h3 {
+            font-size: 1.8rem;
+            color: white;
+            margin-bottom: 15px;
+        }
+
+        .tribute-card p {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.6;
+            font-size: 1rem;
+        }
+
+        .cta-section {
+            text-align: center;
+            padding: 60px 20px;
+            margin: 60px 0;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(90deg, #ff6b6b, #ffd93d);
+            color: #000;
+            padding: 20px 50px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.4);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(255, 107, 107, 0.6);
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 40px 0;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #ffd93d;
+            display: block;
+        }
+
+        .stat-label {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+    <div class="particles" id="particles"></div>
+    
+    <div class="container">
+        <header>
+            <div class="badge">🏆 Record Mondial</div>
+            <h1>Le Plus Long <span class="highlight">FQDN</span> au Monde</h1>
+            <p class="subtitle">Où l'absurde rencontre l'ingéniosité digitale</p>
+            
+            <div class="fqdn-display" id="fqdn">
+                congratulations.and.welcome.to.the.longest.fqdn.ever.been.andwewillupto.1.00000000000000000000000000000000000000000000000000.00000000000000000000000000000000000000000000000000.onthemostinsanefullqualifieddomainnamethathaseverbeenregistered.international
+            </div>
+
+            <div class="stats">
+                <div class="stat-item">
+                    <span class="stat-number" id="charCount">0</span>
+                    <span class="stat-label">Caractères</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">100</span>
+                    <span class="stat-label">Zéros</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">∞</span>
+                    <span class="stat-label">Possibilités</span>
+                </div>
+            </div>
+        </header>
+
+        <section class="googol-section">
+            <h2 style="color: white; font-size: 2.5rem; margin-bottom: 20px;">Le Googol : 10¹⁰⁰</h2>
+            <div class="googol-number">10¹⁰⁰</div>
+            <div class="googol-explanation">
+                Un <strong>googol</strong> est le nombre représenté par 1 suivi de 100 zéros. Ce concept mathématique, inventé par le mathématicien américain Edward Kasner en 1938, a inspiré le nom de Google. Aujourd'hui, ce domaine rend hommage à cette notion d'infini digital et à l'ambition démesurée qui caractérise l'ère d'Internet.
+            </div>
+            <div style="background: rgba(0,0,0,0.3); padding: 20px; border-radius: 15px; margin-top: 30px; font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: rgba(255,255,255,0.7); overflow-x: auto;">
+                10,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000
+            </div>
+        </section>
+
+        <section class="tribute-section">
+            <div class="tribute-card">
+                <div class="tribute-icon">🔢</div>
+                <h3>L'Héritage Google</h3>
+                <p>Inspiré par le googol, Google a redéfini notre rapport à l'information. Ce domaine perpétue cet esprit d'audace et d'innovation sans limites.</p>
+            </div>
+
+            <div class="tribute-card">
+                <div class="tribute-icon">💰</div>
+                <h3>Million Dollar Homepage</h3>
+                <p>En 2005, Alex Tew a créé le buzz avec sa page d'un million de pixels. Ici, nous célébrons l'art du projet absurde et viral qui marque les esprits.</p>
+            </div>
+
+            <div class="tribute-card">
+                <div class="tribute-icon">🚀</div>
+                <h3>L'Absurde Digital</h3>
+                <p>Parce qu'Internet est un terrain de jeu où l'impossible devient réalité. Le plus long FQDN est la preuve qu'il n'y a pas de limites à la créativité.</p>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <h2 style="color: white; font-size: 2.5rem; margin-bottom: 30px;">Bienvenue dans l'Histoire</h2>
+            <p style="color: rgba(255,255,255,0.8); font-size: 1.2rem; margin-bottom: 40px; max-width: 600px; margin-left: auto; margin-right: auto;">
+                Vous êtes désormais témoin du record du monde. Partagez cette folie avec le monde entier.
+            </p>
+            <a href="#" class="cta-button" onclick="shareThis(); return false;">Partager ce Record</a>
+        </section>
+
+        <footer>
+            <p>© 2025 The Longest FQDN Ever | Un projet démesuré pour un Internet sans limites</p>
+            <p style="margin-top: 10px; font-size: 0.8rem;">Inspiré par le googol (10¹⁰⁰) et l'esprit pionnier du web</p>
+        </footer>
+    </div>
+
+    <script>
+        // Particules animées
+        const particlesContainer = document.getElementById('particles');
+        for (let i = 0; i < 50; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.width = Math.random() * 10 + 5 + 'px';
+            particle.style.height = particle.style.width;
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.top = Math.random() * 100 + '%';
+            particle.style.animationDelay = Math.random() * 20 + 's';
+            particle.style.animationDuration = (Math.random() * 20 + 10) + 's';
+            particlesContainer.appendChild(particle);
+        }
+
+        // Compter les caractères du FQDN
+        const fqdn = document.getElementById('fqdn').textContent.trim();
+        document.getElementById('charCount').textContent = fqdn.length;
+
+        // Fonction de partage
+        function shareThis() {
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Le Plus Long FQDN au Monde',
+                    text: 'Découvrez le nom de domaine le plus long jamais enregistré avec 100 zéros !',
+                    url: window.location.href
+                });
+            } else {
+                alert('Copiez et partagez cette URL : ' + window.location.href);
+            }
+        }
+    </script>
+</body>
+</html>
